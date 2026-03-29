@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StegoVault | Secure Image Steganography</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>StegoVault</h1>
+            <p>Hide and reveal secret messages within images.</p>
+        </header>
+
+        <main class="glass-card">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="encode">Encode Message</button>
+                <button class="tab-btn" data-tab="decode">Decode Message</button>
+            </div>
+
+            <div class="form-section">
+                <!-- Drag and Drop Zone -->
+                <div class="upload-zone" id="drop-zone">
+                    <input type="file" id="file-input" accept="image/png, image/jpeg" hidden>
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <p>Drag & Drop your image here</p>
+                    <p class="file-hint">or click to browse (PNG, JPG)</p>
+                    <div id="file-name" class="file-name"></div>
+                </div>
+
+                <!-- Encode Only: Message Input -->
+                <div id="message-container" class="input-group">
+                    <label for="secret-message">Secret Message</label>
+                    <textarea id="secret-message" placeholder="Type the message you want to hide..." rows="4"></textarea>
+                </div>
+
+                <!-- Action Actions -->
+                <button id="action-btn" class="primary-btn">
+                    <span class="btn-text">Encode Image</span>
+                    <span class="spinner hidden"></span>
+                </button>
+            </div>
+
+            <!-- Result Section -->
+            <div id="result-section" class="result-section hidden">
+                <div id="alert-box" class="alert"></div>
+                
+                <div id="decode-result" class="hidden">
+                    <h3>Decoded Message:</h3>
+                    <div class="message-box" id="decoded-text"></div>
+                </div>
+
+                <div id="encode-result" class="hidden">
+                    <a id="download-btn" class="secondary-btn" download="encoded_image.png">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download Encoded Image
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
