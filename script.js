@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('message', message);
         
         try {
-            const response = await fetch('/encode', {
+            const response = await fetch('https://stegano-backend-cwhd.onrender.com/encode', {
                 method: 'POST',
                 body: formData
             });
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('file', file);
         
         try {
-            const response = await fetch('/decode', {
+            const response = await fetch('https://stegano-backend-cwhd.onrender.com/decode', {
                 method: 'POST',
                 body: formData
             });
